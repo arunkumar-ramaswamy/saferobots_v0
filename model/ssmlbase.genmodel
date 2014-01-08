@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.saferobots.ssml.model/src" modelPluginID="org.saferobots.ssml.model"
+    modelName="Ssmlbase" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>ssmlbase.ecore</foreignModel>
+  <genPackages prefix="Ssmlbase" basePackage="org.saferobots.ssml.model" disposableProviderFactory="true"
+      ecorePackage="ssmlbase.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ssmlbase.ecore#//port_type">
+      <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//port_type/in"/>
+      <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//port_type/out"/>
+    </genEnums>
+    <genClasses ecoreClass="ssmlbase.ecore#//System">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssmlbase.ecore#//System/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//System/has_gates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//System/has_connectors"/>
+    </genClasses>
+    <genClasses ecoreClass="ssmlbase.ecore#//Dispatch_gate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssmlbase.ecore#//Dispatch_gate/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//Dispatch_gate/has_policy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//Dispatch_gate/has_ports"/>
+    </genClasses>
+    <genClasses ecoreClass="ssmlbase.ecore#//Dispatch_policy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssmlbase.ecore#//Dispatch_policy/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ssmlbase.ecore#//Port">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssmlbase.ecore#//Port/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//Port/contain_ports"/>
+    </genClasses>
+    <genClasses ecoreClass="ssmlbase.ecore#//Connector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssmlbase.ecore#//Connector/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//Connector/has_QoS"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//Connector/in_port"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//Connector/out_port"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//Connector/has_NFP"/>
+    </genClasses>
+    <genClasses ecoreClass="ssmlbase.ecore#//NFP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssmlbase.ecore#//NFP/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//NFP/has_policy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//NFP/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="ssmlbase.ecore#//QoS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssmlbase.ecore#//QoS/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//QoS/elements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//QoS/has_policy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//QoS/for_context"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Nfp" basePackage="org.saferobots.ssml.model" disposableProviderFactory="true"
+      ecorePackage="nfp.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="nfp.ecore#//Attribute_type">
+      <genEnumLiterals ecoreEnumLiteral="nfp.ecore#//Attribute_type/static"/>
+      <genEnumLiterals ecoreEnumLiteral="nfp.ecore#//Attribute_type/dynamic"/>
+      <genEnumLiterals ecoreEnumLiteral="nfp.ecore#//Attribute_type/derived"/>
+    </genEnums>
+    <genClasses ecoreClass="nfp.ecore#//QoS_Policy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nfp.ecore#//QoS_Policy/name"/>
+    </genClasses>
+    <genClasses ecoreClass="nfp.ecore#//NFP_Policy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nfp.ecore#//NFP_Policy/name"/>
+    </genClasses>
+    <genClasses ecoreClass="nfp.ecore#//Context">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nfp.ecore#//Context/name"/>
+    </genClasses>
+    <genClasses ecoreClass="nfp.ecore#//NFP_Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nfp.ecore#//NFP_Attribute/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nfp.ecore#//NFP_Attribute/is_qualitative"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nfp.ecore#//NFP_Attribute/is_quantitative"/>
+    </genClasses>
+    <genClasses ecoreClass="nfp.ecore#//Quantitative">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nfp.ecore#//Quantitative/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nfp.ecore#//Quantitative/has_unit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nfp.ecore#//Quantitative/has_contraint"/>
+    </genClasses>
+    <genClasses ecoreClass="nfp.ecore#//Qualitative"/>
+    <genClasses ecoreClass="nfp.ecore#//Unit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nfp.ecore#//Unit/name"/>
+    </genClasses>
+    <genClasses ecoreClass="nfp.ecore#//Estimated"/>
+    <genClasses ecoreClass="nfp.ecore#//Measured"/>
+    <genClasses ecoreClass="nfp.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nfp.ecore#//Constraint/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

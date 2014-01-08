@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ssmlbase -->
+      <package
+            uri="http://ssmlbase/1.0"
+            class="org.saferobots.ssml.model.ssmlbase.SsmlbasePackage"
+            genModel="model/ssmlbase.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ssmlbase -->
+      <package
+            uri="http://nfp/1.0"
+            class="org.saferobots.ssml.model.nfp.NfpPackage"
+            genModel="model/ssmlbase.genmodel"/>
+   </extension>
+
+</plugin>
