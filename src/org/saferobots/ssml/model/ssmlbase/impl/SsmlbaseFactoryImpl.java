@@ -19,6 +19,7 @@ import org.saferobots.ssml.model.ssmlbase.Port;
 import org.saferobots.ssml.model.ssmlbase.QoS;
 import org.saferobots.ssml.model.ssmlbase.SsmlbaseFactory;
 import org.saferobots.ssml.model.ssmlbase.SsmlbasePackage;
+import org.saferobots.ssml.model.ssmlbase.gate_type;
 import org.saferobots.ssml.model.ssmlbase.port_type;
 
 /**
@@ -87,6 +88,8 @@ public class SsmlbaseFactoryImpl extends EFactoryImpl implements SsmlbaseFactory
 		switch (eDataType.getClassifierID()) {
 			case SsmlbasePackage.PORT_TYPE:
 				return createport_typeFromString(eDataType, initialValue);
+			case SsmlbasePackage.GATE_TYPE:
+				return creategate_typeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -102,6 +105,8 @@ public class SsmlbaseFactoryImpl extends EFactoryImpl implements SsmlbaseFactory
 		switch (eDataType.getClassifierID()) {
 			case SsmlbasePackage.PORT_TYPE:
 				return convertport_typeToString(eDataType, instanceValue);
+			case SsmlbasePackage.GATE_TYPE:
+				return convertgate_typeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -194,6 +199,26 @@ public class SsmlbaseFactoryImpl extends EFactoryImpl implements SsmlbaseFactory
 	 * @generated
 	 */
 	public String convertport_typeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public gate_type creategate_typeFromString(EDataType eDataType, String initialValue) {
+		gate_type result = gate_type.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertgate_typeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypes">
+      <diagramType
+            name="SolutionEditor Diagram Type"
+            type="editor"
+            id="org.saferobots.functionalmodel.editor.editorDiagramType">
+      </diagramType>
+   </extension>
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypeProviders">
+      <diagramTypeProvider
+            name="SolutionEditor Diagram Type Provider"
+            class="org.saferobots.functionalmodel.editor.diagram.EditorDiagramTypeProvider"
+            id="org.saferobots.functionalmodel.editor.editorDiagramTypeProvider">
+         <diagramType
+               id="org.saferobots.functionalmodel.editor.editorDiagramType">
+         </diagramType>
+      </diagramTypeProvider>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="editor.PropertyContributor">
+         <propertyCategory
+               category="Graphiti">
+         </propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="editor.PropertyContributor">
+         <propertyTab
+               category="Graphiti"
+               id="graphiti.main.tab"
+               label="Main">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="editor.PropertyContributor">
+         <propertySection
+               class="org.saferobots.functionalmodel.editor.property.GateSection"
+               filter="org.saferobots.functionalmodel.editor.property.GateFilter"
+               id="graphiti.main.tab.gate"
+               tab="graphiti.main.tab">
+         </propertySection>
+      </propertySections>
+   </extension>
+
+</plugin>

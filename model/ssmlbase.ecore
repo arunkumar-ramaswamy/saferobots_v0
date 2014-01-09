@@ -14,6 +14,7 @@
         eType="#//Dispatch_policy" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="has_ports" upperBound="-1"
         eType="#//Port" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//gate_type"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dispatch_policy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -52,5 +53,13 @@
   <eClassifiers xsi:type="ecore:EEnum" name="port_type">
     <eLiterals name="in"/>
     <eLiterals name="out" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="gate_type">
+    <eLiterals name="splitter"/>
+    <eLiterals name="synchronizer" value="1"/>
+    <eLiterals name="delay" value="2"/>
+    <eLiterals name="merger" value="3"/>
+    <eLiterals name="selector" value="4"/>
+    <eLiterals name="user_defined" value="5"/>
   </eClassifiers>
 </ecore:EPackage>

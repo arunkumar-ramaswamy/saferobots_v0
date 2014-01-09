@@ -150,13 +150,22 @@ public interface SsmlbasePackage extends EPackage {
 	int DISPATCH_GATE__HAS_PORTS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPATCH_GATE__TYPE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Dispatch gate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISPATCH_GATE_FEATURE_COUNT = 3;
+	int DISPATCH_GATE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Dispatch gate</em>' class.
@@ -454,6 +463,17 @@ public interface SsmlbasePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.saferobots.ssml.model.ssmlbase.gate_type <em>gate type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.saferobots.ssml.model.ssmlbase.gate_type
+	 * @see org.saferobots.ssml.model.ssmlbase.impl.SsmlbasePackageImpl#getgate_type()
+	 * @generated
+	 */
+	int GATE_TYPE = 8;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.saferobots.ssml.model.ssmlbase.System <em>System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -538,6 +558,17 @@ public interface SsmlbasePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDispatch_gate_Has_ports();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.saferobots.ssml.model.ssmlbase.Dispatch_gate#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.saferobots.ssml.model.ssmlbase.Dispatch_gate#getType()
+	 * @see #getDispatch_gate()
+	 * @generated
+	 */
+	EAttribute getDispatch_gate_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.saferobots.ssml.model.ssmlbase.Dispatch_policy <em>Dispatch policy</em>}'.
@@ -765,6 +796,16 @@ public interface SsmlbasePackage extends EPackage {
 	EEnum getport_type();
 
 	/**
+	 * Returns the meta object for enum '{@link org.saferobots.ssml.model.ssmlbase.gate_type <em>gate type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>gate type</em>'.
+	 * @see org.saferobots.ssml.model.ssmlbase.gate_type
+	 * @generated
+	 */
+	EEnum getgate_type();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -854,6 +895,14 @@ public interface SsmlbasePackage extends EPackage {
 		 * @generated
 		 */
 		EReference DISPATCH_GATE__HAS_PORTS = eINSTANCE.getDispatch_gate_Has_ports();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISPATCH_GATE__TYPE = eINSTANCE.getDispatch_gate_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.saferobots.ssml.model.ssmlbase.impl.Dispatch_policyImpl <em>Dispatch policy</em>}' class.
@@ -1034,6 +1083,16 @@ public interface SsmlbasePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum PORT_TYPE = eINSTANCE.getport_type();
+
+		/**
+		 * The meta object literal for the '{@link org.saferobots.ssml.model.ssmlbase.gate_type <em>gate type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.saferobots.ssml.model.ssmlbase.gate_type
+		 * @see org.saferobots.ssml.model.ssmlbase.impl.SsmlbasePackageImpl#getgate_type()
+		 * @generated
+		 */
+		EEnum GATE_TYPE = eINSTANCE.getgate_type();
 
 	}
 

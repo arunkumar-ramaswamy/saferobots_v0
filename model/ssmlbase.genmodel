@@ -11,6 +11,14 @@
       <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//port_type/in"/>
       <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//port_type/out"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ssmlbase.ecore#//gate_type">
+      <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//gate_type/splitter"/>
+      <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//gate_type/synchronizer"/>
+      <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//gate_type/delay"/>
+      <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//gate_type/merger"/>
+      <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//gate_type/selector"/>
+      <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//gate_type/user_defined"/>
+    </genEnums>
     <genClasses ecoreClass="ssmlbase.ecore#//System">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssmlbase.ecore#//System/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//System/has_gates"/>
@@ -20,6 +28,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssmlbase.ecore#//Dispatch_gate/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//Dispatch_gate/has_policy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssmlbase.ecore#//Dispatch_gate/has_ports"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssmlbase.ecore#//Dispatch_gate/type"/>
     </genClasses>
     <genClasses ecoreClass="ssmlbase.ecore#//Dispatch_policy">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssmlbase.ecore#//Dispatch_policy/name"/>

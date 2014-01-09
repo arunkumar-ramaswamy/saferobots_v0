@@ -22,6 +22,7 @@ import org.saferobots.ssml.model.ssmlbase.Dispatch_gate;
 import org.saferobots.ssml.model.ssmlbase.Dispatch_policy;
 import org.saferobots.ssml.model.ssmlbase.Port;
 import org.saferobots.ssml.model.ssmlbase.SsmlbasePackage;
+import org.saferobots.ssml.model.ssmlbase.gate_type;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +34,7 @@ import org.saferobots.ssml.model.ssmlbase.SsmlbasePackage;
  *   <li>{@link org.saferobots.ssml.model.ssmlbase.impl.Dispatch_gateImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.saferobots.ssml.model.ssmlbase.impl.Dispatch_gateImpl#getHas_policy <em>Has policy</em>}</li>
  *   <li>{@link org.saferobots.ssml.model.ssmlbase.impl.Dispatch_gateImpl#getHas_ports <em>Has ports</em>}</li>
+ *   <li>{@link org.saferobots.ssml.model.ssmlbase.impl.Dispatch_gateImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,6 +80,26 @@ public class Dispatch_gateImpl extends MinimalEObjectImpl.Container implements D
 	 * @ordered
 	 */
 	protected EList<Port> has_ports;
+
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final gate_type TYPE_EDEFAULT = gate_type.SPLITTER;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected gate_type type = TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,6 +201,27 @@ public class Dispatch_gateImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public gate_type getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(gate_type newType) {
+		gate_type oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SsmlbasePackage.DISPATCH_GATE__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -204,6 +247,8 @@ public class Dispatch_gateImpl extends MinimalEObjectImpl.Container implements D
 				return getHas_policy();
 			case SsmlbasePackage.DISPATCH_GATE__HAS_PORTS:
 				return getHas_ports();
+			case SsmlbasePackage.DISPATCH_GATE__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -227,6 +272,9 @@ public class Dispatch_gateImpl extends MinimalEObjectImpl.Container implements D
 				getHas_ports().clear();
 				getHas_ports().addAll((Collection<? extends Port>)newValue);
 				return;
+			case SsmlbasePackage.DISPATCH_GATE__TYPE:
+				setType((gate_type)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -248,6 +296,9 @@ public class Dispatch_gateImpl extends MinimalEObjectImpl.Container implements D
 			case SsmlbasePackage.DISPATCH_GATE__HAS_PORTS:
 				getHas_ports().clear();
 				return;
+			case SsmlbasePackage.DISPATCH_GATE__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -266,6 +317,8 @@ public class Dispatch_gateImpl extends MinimalEObjectImpl.Container implements D
 				return has_policy != null;
 			case SsmlbasePackage.DISPATCH_GATE__HAS_PORTS:
 				return has_ports != null && !has_ports.isEmpty();
+			case SsmlbasePackage.DISPATCH_GATE__TYPE:
+				return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -282,6 +335,8 @@ public class Dispatch_gateImpl extends MinimalEObjectImpl.Container implements D
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

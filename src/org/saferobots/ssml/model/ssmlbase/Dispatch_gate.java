@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.saferobots.ssml.model.ssmlbase.Dispatch_gate#getName <em>Name</em>}</li>
  *   <li>{@link org.saferobots.ssml.model.ssmlbase.Dispatch_gate#getHas_policy <em>Has policy</em>}</li>
  *   <li>{@link org.saferobots.ssml.model.ssmlbase.Dispatch_gate#getHas_ports <em>Has ports</em>}</li>
+ *   <li>{@link org.saferobots.ssml.model.ssmlbase.Dispatch_gate#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,5 +93,34 @@ public interface Dispatch_gate extends EObject {
 	 * @generated
 	 */
 	EList<Port> getHas_ports();
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.saferobots.ssml.model.ssmlbase.gate_type}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see org.saferobots.ssml.model.ssmlbase.gate_type
+	 * @see #setType(gate_type)
+	 * @see org.saferobots.ssml.model.ssmlbase.SsmlbasePackage#getDispatch_gate_Type()
+	 * @model
+	 * @generated
+	 */
+	gate_type getType();
+
+	/**
+	 * Sets the value of the '{@link org.saferobots.ssml.model.ssmlbase.Dispatch_gate#getType <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see org.saferobots.ssml.model.ssmlbase.gate_type
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(gate_type value);
 
 } // Dispatch_gate

@@ -21,6 +21,7 @@ import org.saferobots.ssml.model.ssmlbase.Port;
 import org.saferobots.ssml.model.ssmlbase.QoS;
 import org.saferobots.ssml.model.ssmlbase.SsmlbaseFactory;
 import org.saferobots.ssml.model.ssmlbase.SsmlbasePackage;
+import org.saferobots.ssml.model.ssmlbase.gate_type;
 import org.saferobots.ssml.model.ssmlbase.port_type;
 
 /**
@@ -85,6 +86,13 @@ public class SsmlbasePackageImpl extends EPackageImpl implements SsmlbasePackage
 	 * @generated
 	 */
 	private EEnum port_typeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum gate_typeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -222,6 +230,15 @@ public class SsmlbasePackageImpl extends EPackageImpl implements SsmlbasePackage
 	 */
 	public EReference getDispatch_gate_Has_ports() {
 		return (EReference)dispatch_gateEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDispatch_gate_Type() {
+		return (EAttribute)dispatch_gateEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -418,6 +435,15 @@ public class SsmlbasePackageImpl extends EPackageImpl implements SsmlbasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getgate_type() {
+		return gate_typeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SsmlbaseFactory getSsmlbaseFactory() {
 		return (SsmlbaseFactory)getEFactoryInstance();
 	}
@@ -450,6 +476,7 @@ public class SsmlbasePackageImpl extends EPackageImpl implements SsmlbasePackage
 		createEAttribute(dispatch_gateEClass, DISPATCH_GATE__NAME);
 		createEReference(dispatch_gateEClass, DISPATCH_GATE__HAS_POLICY);
 		createEReference(dispatch_gateEClass, DISPATCH_GATE__HAS_PORTS);
+		createEAttribute(dispatch_gateEClass, DISPATCH_GATE__TYPE);
 
 		dispatch_policyEClass = createEClass(DISPATCH_POLICY);
 		createEAttribute(dispatch_policyEClass, DISPATCH_POLICY__NAME);
@@ -478,6 +505,7 @@ public class SsmlbasePackageImpl extends EPackageImpl implements SsmlbasePackage
 
 		// Create enums
 		port_typeEEnum = createEEnum(PORT_TYPE);
+		gate_typeEEnum = createEEnum(GATE_TYPE);
 	}
 
 	/**
@@ -522,6 +550,7 @@ public class SsmlbasePackageImpl extends EPackageImpl implements SsmlbasePackage
 		initEAttribute(getDispatch_gate_Name(), ecorePackage.getEString(), "name", null, 0, 1, Dispatch_gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDispatch_gate_Has_policy(), this.getDispatch_policy(), null, "has_policy", null, 1, 1, Dispatch_gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDispatch_gate_Has_ports(), this.getPort(), null, "has_ports", null, 0, -1, Dispatch_gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDispatch_gate_Type(), this.getgate_type(), "type", null, 0, 1, Dispatch_gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dispatch_policyEClass, Dispatch_policy.class, "Dispatch_policy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDispatch_policy_Name(), ecorePackage.getEString(), "name", null, 0, 1, Dispatch_policy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -552,6 +581,14 @@ public class SsmlbasePackageImpl extends EPackageImpl implements SsmlbasePackage
 		initEEnum(port_typeEEnum, port_type.class, "port_type");
 		addEEnumLiteral(port_typeEEnum, port_type.IN);
 		addEEnumLiteral(port_typeEEnum, port_type.OUT);
+
+		initEEnum(gate_typeEEnum, gate_type.class, "gate_type");
+		addEEnumLiteral(gate_typeEEnum, gate_type.SPLITTER);
+		addEEnumLiteral(gate_typeEEnum, gate_type.SYNCHRONIZER);
+		addEEnumLiteral(gate_typeEEnum, gate_type.DELAY);
+		addEEnumLiteral(gate_typeEEnum, gate_type.MERGER);
+		addEEnumLiteral(gate_typeEEnum, gate_type.SELECTOR);
+		addEEnumLiteral(gate_typeEEnum, gate_type.USER_DEFINED);
 
 		// Create resource
 		createResource(eNS_URI);
