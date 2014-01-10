@@ -3,12 +3,14 @@ package org.saferobots.functionalmodel.editor.features;
 import org.eclipse.graphiti.features.IFeatureProvider;
 import org.eclipse.graphiti.features.context.IAddContext;
 import org.eclipse.graphiti.features.impl.AbstractAddShapeFeature;
+import org.eclipse.graphiti.mm.algorithms.Ellipse;
 import org.eclipse.graphiti.mm.algorithms.Polyline;
 import org.eclipse.graphiti.mm.algorithms.Rectangle;
 import org.eclipse.graphiti.mm.algorithms.RoundedRectangle;
 import org.eclipse.graphiti.mm.algorithms.Text;
 import org.eclipse.graphiti.mm.algorithms.styles.Font;
 import org.eclipse.graphiti.mm.algorithms.styles.Orientation;
+import org.eclipse.graphiti.mm.pictograms.BoxRelativeAnchor;
 import org.eclipse.graphiti.mm.pictograms.ContainerShape;
 import org.eclipse.graphiti.mm.pictograms.Diagram;
 import org.eclipse.graphiti.mm.pictograms.PictogramElement;
@@ -35,6 +37,7 @@ public class DelayGateAddFeature extends AbstractAddShapeFeature {
 	private static final IColorConstant PORT_BACKGROUND =
 	        IColorConstant.ORANGE;
 	
+
 	
 
 	public DelayGateAddFeature(IFeatureProvider fp) {
@@ -87,16 +90,28 @@ public class DelayGateAddFeature extends AbstractAddShapeFeature {
 		    link(shape, addedgate);
 	    }
   
+	    Rectangle out_rectangle;
         //out port
 	    {
 	    	Shape shape = peCreateService.createShape(containerShape,true);
-	    	Rectangle rectangle = gaService.createRectangle(shape);
-	    	rectangle.setBackground(manageColor(PORT_BACKGROUND));
-	    	rectangle.setForeground(manageColor(GATE_FOREGROUND));
-		    gaService.setLocationAndSize(rectangle,
+	    	out_rectangle = gaService.createRectangle(shape);
+	    	out_rectangle.setBackground(manageColor(PORT_BACKGROUND));
+	    	out_rectangle.setForeground(manageColor(GATE_FOREGROUND));
+		    gaService.setLocationAndSize(out_rectangle,
 		    		gate_width+port_width, gate_height/2-port_width/2, port_width, port_width);
 		    link(shape,out_port);
+		    peCreateService.createChopboxAnchor(shape);
+
+	    //create anchor
+		 /*   BoxRelativeAnchor anchor = peCreateService.createBoxRelativeAnchor(shape);
+		    anchor.setRelativeWidth(1);
+		    anchor.setRelativeWidth(0.5);
+		    anchor.setReferencedGraphicsAlgorithm(out_rectangle);
+		    final Ellipse ellipse = gaService.createPlainEllipse(anchor);
+		    gaService.setLocationAndSize(ellipse, 0, 0, 20, 20);	*/    
+		    
 	    }
+	    
         //in port
 	    {
 	    	Shape shape = peCreateService.createShape(containerShape,true);
@@ -106,6 +121,7 @@ public class DelayGateAddFeature extends AbstractAddShapeFeature {
 		    gaService.setLocationAndSize(rectangle,
 		    		0, gate_height/2-port_width/2, port_width, port_width);
 		    link(shape,in_port);
+		    peCreateService.createChopboxAnchor(shape);
 	    }
 	      //text
         {
@@ -120,7 +136,7 @@ public class DelayGateAddFeature extends AbstractAddShapeFeature {
             gaService.setLocationAndSize(text,10,gate_height-10,50, 50);
  
         }        
-        
+         
         return containerShape;
 	}
 

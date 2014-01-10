@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.Map;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.graphiti.dt.AbstractDiagramTypeProvider;
+import org.saferobots.functionalmodel.editor.utilities.Utilities;
 import org.saferobots.ssml.model.ssmlbase.Connector;
 import org.saferobots.ssml.model.ssmlbase.Dispatch_gate;
 import org.saferobots.ssml.model.ssmlbase.SsmlbaseFactory;
@@ -55,7 +57,6 @@ public class EditorDiagramTypeProvider extends AbstractDiagramTypeProvider {
 			e.printStackTrace();
 		}
 		/////////////////////////////////////////////////////////
-		
-	}
 	
+	}
 }

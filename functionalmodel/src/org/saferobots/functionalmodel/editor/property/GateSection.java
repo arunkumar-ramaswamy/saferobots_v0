@@ -1,5 +1,7 @@
 package org.saferobots.functionalmodel.editor.property;
 
+import org.eclipse.graphiti.mm.pictograms.PictogramElement;
+import org.eclipse.graphiti.services.Graphiti;
 import org.eclipse.graphiti.ui.platform.GFPropertySection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
@@ -10,6 +12,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertyConstants;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
+import org.saferobots.ssml.model.ssmlbase.Dispatch_gate;
 
 public class GateSection extends GFPropertySection implements
 		ITabbedPropertyConstants {
@@ -42,7 +45,15 @@ public class GateSection extends GFPropertySection implements
 
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
+		PictogramElement pe = getSelectedPictogramElement();
+		if (pe != null) {
+			Object bo = Graphiti.getLinkService().getBusinessObjectForLinkedPictogramElement(pe);
+			// the filter assured, that it is a EClass
+			if (bo == null)
+				return;
+			String name = ((Dispatch_gate) bo).getName();
+			nameText.setText(name == null ? "" : name); //$NON-NLS-1$
+		}
 		super.refresh();
 	}
 	

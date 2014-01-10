@@ -1,8 +1,8 @@
 package org.saferobots.functionalmodel.editor.diagram;
 
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.graphiti.dt.IDiagramTypeProvider;
 import org.eclipse.graphiti.features.IAddFeature;
+import org.eclipse.graphiti.features.ICreateConnectionFeature;
 import org.eclipse.graphiti.features.ICreateFeature;
 import org.eclipse.graphiti.features.IMoveShapeFeature;
 import org.eclipse.graphiti.features.IResizeShapeFeature;
@@ -11,15 +11,19 @@ import org.eclipse.graphiti.features.context.IMoveShapeContext;
 import org.eclipse.graphiti.features.context.IResizeShapeContext;
 import org.eclipse.graphiti.mm.pictograms.Shape;
 import org.eclipse.graphiti.ui.features.DefaultFeatureProvider;
+import org.saferobots.functionalmodel.editor.features.AddConnectorFeature;
+import org.saferobots.functionalmodel.editor.features.CreateConnectorFeature;
 import org.saferobots.functionalmodel.editor.features.DelayGateAddFeature;
 import org.saferobots.functionalmodel.editor.features.DelayGateCreateFeature;
 import org.saferobots.functionalmodel.editor.features.GateMoveFeature;
 import org.saferobots.functionalmodel.editor.features.GateResizeFeature;
 import org.saferobots.functionalmodel.editor.features.PortMoveFeature;
 import org.saferobots.functionalmodel.editor.features.PortResizeFeature;
+import org.saferobots.functionalmodel.editor.features.SystemAddFeature;
+import org.saferobots.functionalmodel.editor.features.SystemCreateFeature;
+import org.saferobots.ssml.model.ssmlbase.Connector;
 import org.saferobots.ssml.model.ssmlbase.Dispatch_gate;
 import org.saferobots.ssml.model.ssmlbase.Port;
-import org.saferobots.ssml.model.ssmlbase.SsmlbaseFactory;
 import org.saferobots.ssml.model.ssmlbase.System;
 
 
@@ -27,11 +31,12 @@ public class EditorFeatureProvider extends DefaultFeatureProvider {
 
 	public EditorFeatureProvider(IDiagramTypeProvider dtp) {
 		super(dtp);
+		
 	}
 
 	@Override
 	public ICreateFeature[] getCreateFeatures() {
-		return new ICreateFeature[] {new DelayGateCreateFeature(this)};
+		return new ICreateFeature[] {new SystemCreateFeature(this), new DelayGateCreateFeature(this)};
 		}
 
 
@@ -42,17 +47,21 @@ public class EditorFeatureProvider extends DefaultFeatureProvider {
 	public IAddFeature getAddFeature(IAddContext context) {
 		
 		//Adding a system to diagram resource
-		Resource diagram_resource = context.getTargetContainer().eResource();
+		/*Resource diagram_resource = context.getTargetContainer().eResource();
 		if(diagram_resource.getContents().get(0)==null)
 		{
 		System system = SsmlbaseFactory.eINSTANCE.createSystem();
 		diagram_resource.getContents().add(system);
-		}
+		}*/
 		
 		Object bo = context.getNewObject();
 	    if (bo instanceof Dispatch_gate) {
 	        return new DelayGateAddFeature(this);
-	    }
+	    } else if (bo instanceof Connector) {
+			return new AddConnectorFeature(this);
+		} else if (bo instanceof System) {
+			return new SystemAddFeature(this);
+		}	    
 	    return super.getAddFeature(context);
 	}
 
@@ -78,6 +87,11 @@ public class EditorFeatureProvider extends DefaultFeatureProvider {
 			return new PortMoveFeature(this);
 		}
 		return super.getMoveShapeFeature(context);
+	}
+
+	@Override
+	public ICreateConnectionFeature[] getCreateConnectionFeatures() {
+		return new ICreateConnectionFeature[]{new CreateConnectorFeature(this)};
 	}	
 	
 }
