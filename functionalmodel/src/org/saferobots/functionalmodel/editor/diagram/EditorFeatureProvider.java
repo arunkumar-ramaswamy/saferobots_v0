@@ -13,12 +13,15 @@ import org.eclipse.graphiti.mm.pictograms.Shape;
 import org.eclipse.graphiti.ui.features.DefaultFeatureProvider;
 import org.saferobots.functionalmodel.editor.features.AddConnectorFeature;
 import org.saferobots.functionalmodel.editor.features.CreateConnectorFeature;
-import org.saferobots.functionalmodel.editor.features.DelayGateAddFeature;
+import org.saferobots.functionalmodel.editor.features.GateAddFeature;
 import org.saferobots.functionalmodel.editor.features.DelayGateCreateFeature;
 import org.saferobots.functionalmodel.editor.features.GateMoveFeature;
 import org.saferobots.functionalmodel.editor.features.GateResizeFeature;
 import org.saferobots.functionalmodel.editor.features.PortMoveFeature;
 import org.saferobots.functionalmodel.editor.features.PortResizeFeature;
+import org.saferobots.functionalmodel.editor.features.SelectorGateCreateFeature;
+import org.saferobots.functionalmodel.editor.features.SinkCreateFeature;
+import org.saferobots.functionalmodel.editor.features.SourceCreateFeature;
 import org.saferobots.functionalmodel.editor.features.SystemAddFeature;
 import org.saferobots.functionalmodel.editor.features.SystemCreateFeature;
 import org.saferobots.ssml.model.ssmlbase.Connector;
@@ -36,7 +39,8 @@ public class EditorFeatureProvider extends DefaultFeatureProvider {
 
 	@Override
 	public ICreateFeature[] getCreateFeatures() {
-		return new ICreateFeature[] {new SystemCreateFeature(this), new DelayGateCreateFeature(this)};
+		return new ICreateFeature[] {new SystemCreateFeature(this), new DelayGateCreateFeature(this), new SelectorGateCreateFeature(this),
+				new SourceCreateFeature(this), new SinkCreateFeature(this)};
 		}
 
 
@@ -44,19 +48,10 @@ public class EditorFeatureProvider extends DefaultFeatureProvider {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IAddFeature getAddFeature(IAddContext context) {
-		
-		//Adding a system to diagram resource
-		/*Resource diagram_resource = context.getTargetContainer().eResource();
-		if(diagram_resource.getContents().get(0)==null)
-		{
-		System system = SsmlbaseFactory.eINSTANCE.createSystem();
-		diagram_resource.getContents().add(system);
-		}*/
-		
+	public IAddFeature getAddFeature(IAddContext context) {		
 		Object bo = context.getNewObject();
 	    if (bo instanceof Dispatch_gate) {
-	        return new DelayGateAddFeature(this);
+				return new GateAddFeature(this);
 	    } else if (bo instanceof Connector) {
 			return new AddConnectorFeature(this);
 		} else if (bo instanceof System) {

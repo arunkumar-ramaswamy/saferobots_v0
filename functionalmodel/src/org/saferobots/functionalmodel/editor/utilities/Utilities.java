@@ -21,8 +21,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.graphiti.mm.pictograms.Diagram;
-import org.saferobots.ssml.model.ssmlbase.SsmlbaseFactory;
-import org.saferobots.ssml.model.ssmlbase.System;
 
 public class Utilities {
 
@@ -47,12 +45,10 @@ public class Utilities {
 		ResourceSet rSet = d.eResource().getResourceSet();
 		final IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
 		IResource file = workspaceRoot.findMember(uri.toPlatformString(true));
-		boolean fileexist = true;
 		if (file == null || !file.exists()) {
 			Resource createResource = rSet.createResource(uri);
 			createResource.save(Collections.emptyMap());
 			createResource.setTrackingModification(true);
-			fileexist = false;
 		}
 		final Resource resource = rSet.getResource(uri, true);
 		resource.getContents().add(obj);

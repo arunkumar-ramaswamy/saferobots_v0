@@ -17,12 +17,13 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertyConstants;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
+import org.saferobots.ssml.model.ssmlbase.Connector;
 import org.saferobots.ssml.model.ssmlbase.Dispatch_gate;
 
-public class GateSection extends GFPropertySection implements
+public class ConnectorSection extends GFPropertySection implements
 		ITabbedPropertyConstants {
-	
-	private Text nameText;
+
+private Text nameText;
 	
 	@Override
 	public void createControls(Composite parent,
@@ -36,8 +37,7 @@ public class GateSection extends GFPropertySection implements
         nameText = factory.createText(composite, "");
         nameText.setEditable(true);
         nameText.addModifyListener(gatenamelistener);
-     
-        
+             
         
         data = new FormData();
         data.left = new FormAttachment(0, STANDARD_LABEL_WIDTH);
@@ -60,7 +60,7 @@ public class GateSection extends GFPropertySection implements
 			Object bo = Graphiti.getLinkService().getBusinessObjectForLinkedPictogramElement(pe);
 			if (bo == null)
 				return;
-			String name = ((Dispatch_gate) bo).getName();
+			String name = ((Connector) bo).getName();
 			nameText.setText(name == null ? "" : name); //$NON-NLS-1$
 		}
 		super.refresh();
@@ -72,7 +72,7 @@ public class GateSection extends GFPropertySection implements
 		public void modifyText (ModifyEvent arg0){
 		// set the new name for the Intention
 		PictogramElement pe = getSelectedPictogramElement();
-		final Dispatch_gate bo = (Dispatch_gate)Graphiti.getLinkService().getBusinessObjectForLinkedPictogramElement(pe);
+		final Connector bo = (Connector)Graphiti.getLinkService().getBusinessObjectForLinkedPictogramElement(pe);
 
 		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(bo);
 
@@ -85,5 +85,4 @@ public class GateSection extends GFPropertySection implements
 		}
 		};
 	
-
 }

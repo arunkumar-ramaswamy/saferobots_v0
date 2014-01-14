@@ -76,7 +76,23 @@ public enum gate_type implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	USER_DEFINED(5, "user_defined", "user_defined");
+	USER_DEFINED(5, "user_defined", "user_defined"), /**
+	 * The '<em><b>Source</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SOURCE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SOURCE(6, "source", "source"), /**
+	 * The '<em><b>Sink</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SINK_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SINK(7, "sink", "sink");
 
 	/**
 	 * The '<em><b>Splitter</b></em>' literal value.
@@ -169,6 +185,36 @@ public enum gate_type implements Enumerator {
 	public static final int USER_DEFINED_VALUE = 5;
 
 	/**
+	 * The '<em><b>Source</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Source</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #SOURCE
+	 * @model name="source"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SOURCE_VALUE = 6;
+
+	/**
+	 * The '<em><b>Sink</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Sink</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #SINK
+	 * @model name="sink"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SINK_VALUE = 7;
+
+	/**
 	 * An array of all the '<em><b>gate type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,6 +228,8 @@ public enum gate_type implements Enumerator {
 			MERGER,
 			SELECTOR,
 			USER_DEFINED,
+			SOURCE,
+			SINK,
 		};
 
 	/**
@@ -238,6 +286,8 @@ public enum gate_type implements Enumerator {
 			case MERGER_VALUE: return MERGER;
 			case SELECTOR_VALUE: return SELECTOR;
 			case USER_DEFINED_VALUE: return USER_DEFINED;
+			case SOURCE_VALUE: return SOURCE;
+			case SINK_VALUE: return SINK;
 		}
 		return null;
 	}

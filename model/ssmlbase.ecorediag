@@ -186,6 +186,14 @@
         <element xmi:type="ecore:EEnumLiteral" href="ssmlbase.ecore#//gate_type/selector"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_zQLIAXiCEeODMeKiMYHs0A"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_PtpRcHylEeOTBaSW5w3rDQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="ssmlbase.ecore#//gate_type/source"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_PtpRcXylEeOTBaSW5w3rDQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_RSsjsHylEeOTBaSW5w3rDQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="ssmlbase.ecore#//gate_type/sink"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_RSsjsXylEeOTBaSW5w3rDQ"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_0gcdEHiCEeODMeKiMYHs0A" type="2006">
         <element xmi:type="ecore:EEnumLiteral" href="ssmlbase.ecore#//gate_type/user_defined"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0gcdEXiCEeODMeKiMYHs0A"/>

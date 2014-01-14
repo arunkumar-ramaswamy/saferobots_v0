@@ -18,6 +18,8 @@
       <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//gate_type/merger"/>
       <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//gate_type/selector"/>
       <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//gate_type/user_defined"/>
+      <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//gate_type/source"/>
+      <genEnumLiterals ecoreEnumLiteral="ssmlbase.ecore#//gate_type/sink"/>
     </genEnums>
     <genClasses ecoreClass="ssmlbase.ecore#//System">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssmlbase.ecore#//System/name"/>

@@ -61,5 +61,7 @@
     <eLiterals name="merger" value="3"/>
     <eLiterals name="selector" value="4"/>
     <eLiterals name="user_defined" value="5"/>
+    <eLiterals name="source" value="6"/>
+    <eLiterals name="sink" value="7"/>
   </eClassifiers>
 </ecore:EPackage>

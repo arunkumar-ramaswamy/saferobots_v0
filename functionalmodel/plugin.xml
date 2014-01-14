@@ -51,6 +51,12 @@
                id="graphiti.main.tab.gate"
                tab="graphiti.main.tab">
          </propertySection>
+         <propertySection
+               class="org.saferobots.functionalmodel.editor.property.ConnectorSection"
+               filter="org.saferobots.functionalmodel.editor.property.ConnectorFilter"
+               id="graphiti.main.tab.connector"
+               tab="graphiti.main.tab">
+         </propertySection>
       </propertySections>
    </extension>
 

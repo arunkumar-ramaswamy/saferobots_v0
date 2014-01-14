@@ -589,6 +589,8 @@ public class SsmlbasePackageImpl extends EPackageImpl implements SsmlbasePackage
 		addEEnumLiteral(gate_typeEEnum, gate_type.MERGER);
 		addEEnumLiteral(gate_typeEEnum, gate_type.SELECTOR);
 		addEEnumLiteral(gate_typeEEnum, gate_type.USER_DEFINED);
+		addEEnumLiteral(gate_typeEEnum, gate_type.SOURCE);
+		addEEnumLiteral(gate_typeEEnum, gate_type.SINK);
 
 		// Create resource
 		createResource(eNS_URI);
